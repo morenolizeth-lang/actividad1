@@ -1,23 +1,23 @@
 package org.example;
 
-// La clase carro HEREDA de Vehiculo
-public class carro extends Vehiculo {
-
-    // Atributo propio del carro
+public class carro {
+    // Atributos del carro
+    private String marca;
+    private String modelo;
     private String color;
 
-    // Constructor vacío
+    // constructor vacío
     public carro() {
-        super(); // Llama al constructor de la clase padre
     }
 
-    // Constructor con parámetros
+    // constructor con parámetros
     public carro(String marca, String modelo, String color) {
-        super(marca, modelo); // HERENCIA: usa atributos del padre
+        this.marca = marca;
+        this.modelo = modelo;
         this.color = color;
     }
 
-    // Métodos GET y SET
+    // GET - SET
     public String getMarca() {
         return marca;
     }
@@ -42,14 +42,11 @@ public class carro extends Vehiculo {
         this.color = color;
     }
 
-    // DEPENDENCIA:
-    // El carro usa la clase Gasolina SOLO como parámetro
-    // No es un atributo permanente
+    // DEPENDENCIA
     public void conducir(Gasolina gasolina) {
         System.out.println("El carro conduce usando gasolina tipo: " + gasolina.getTipo());
     }
 
-    // Método para mostrar la información del carro
     @Override
     public String toString() {
         return "carro{" +
