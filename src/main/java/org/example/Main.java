@@ -1,20 +1,27 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// Clase principal donde se crean los objetos
 public class Main {
     public static void main(String[] args) {
 
-        carro p1= new carro();
-        p1.setNombre("juan");
-        p1.setEdad("26");
-        p1.setGenero("masculino");
+        // Creación de un objeto carro usando constructor vacío
+        carro c1 = new carro();
+        c1.setMarca("Toyota");
+        c1.setModelo("Corolla");
+        c1.setColor("Rojo");
 
-        carro p2= new carro("juliana","19","femenino"  );
+        // Creación de un objeto carro usando constructor con parámetros
+        carro c2 = new carro("Mazda", "CX-5", "Negro");
 
-        System.out.println( p1.toString());
-        System.out.println( p2.toString());
+        // Objeto Gasolina (DEPENDENCIA)
+        Gasolina gasolina = new Gasolina("Extra");
 
+        // Uso de métodos
+        c1.encender();          // Método heredado
+        c1.conducir(gasolina); // Método con dependencia
 
+        // Mostrar información
+        System.out.println(c1.toString());
+        System.out.println(c2.toString());
     }
 }

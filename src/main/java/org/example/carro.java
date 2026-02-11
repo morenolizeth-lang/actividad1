@@ -1,63 +1,61 @@
 package org.example;
 
-public class carro {
-    //Atributos
+// La clase carro HEREDA de Vehiculo
+public class carro extends Vehiculo {
 
-    private String nombre;
-    private String edad;
-    private String genero;
+    // Atributo propio del carro
+    private String color;
 
-    //constructor basio
+    // Constructor vacío
     public carro() {
+        super(); // Llama al constructor de la clase padre
     }
 
-    //metodos
-    public carro(String nombre, String edad, String genero) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.genero = genero;
-    }
-    // GET -SET
-
-    public String getNombre() {
-        return nombre;
+    // Constructor con parámetros
+    public carro(String marca, String modelo, String color) {
+        super(marca, modelo); // HERENCIA: usa atributos del padre
+        this.color = color;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    // Métodos GET y SET
+    public String getMarca() {
+        return marca;
     }
 
-    public String getEdad() {
-        return edad;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public void setEdad(String edad) {
-        this.edad = edad;
+    public String getModelo() {
+        return modelo;
     }
 
-    public String getGenero() {
-        return genero;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public String getColor() {
+        return color;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // DEPENDENCIA:
+    // El carro usa la clase Gasolina SOLO como parámetro
+    // No es un atributo permanente
+    public void conducir(Gasolina gasolina) {
+        System.out.println("El carro conduce usando gasolina tipo: " + gasolina.getTipo());
+    }
+
+    // Método para mostrar la información del carro
     @Override
     public String toString() {
-        return "persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad='" + edad + '\'' +
-                ", genero='" + genero + '\'' +
+        return "carro{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", color='" + color + '\'' +
                 '}';
     }
-    public int calcularPasos(){
-        return 0;
-    }
-
-    public double calcularSalario(){
-        return 0.0;
-    }
 }
-
-
